@@ -1,0 +1,85 @@
+<html manifest="Cache.manifest">
+    
+<head>
+    <title> مكتب : مرتضى GAMES الغدير </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body 
+        {
+            background-image: url("MasterCode.jpg");
+            height: 80%;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .loader 
+        {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin: -75px 0 0 -75px;
+            border: 5px solid #424242;
+            border-radius: 50%;
+            border-top: 5px solid #424242;
+            border-left: 5px solid #0099ff;
+            width: 100px;
+            height: 100px;
+            animation: spin 0.7s linear infinite;
+        }
+
+        @keyframes spin 
+        {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .info 
+        {
+            overflow: hidden;
+            position: fixed;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+
+            font-size: 45px;
+            font-family: sans-serif;
+            color: #ffffff;
+
+            transform: translate(-50%, -50%);
+        }
+
+        .j {
+            font-size: 25px;
+            color: #ffffff;
+        }
+    </style>
+     
+     <script>
+        window.applicationCache.ondownloading=function(){document.getElementById("progress").innerHTML=" جاري التحميل ";};
+        window.applicationCache.onprogress=function(a){document.getElementById("progress").innerHTML=(Math.round(100*(a.loaded/a.total)))+"%";};
+        window.applicationCache.oncached=function(){document.getElementById("progress").innerHTML=" تم تحميل الصفحة ";setTimeout(function(){document.getElementById("progress").innerHTML=" أعد تشغيل المتصفح "; }, 1500);};
+        window.applicationCache.onnoupdate=function(){setTimeout(webkitExploit,500);};
+	    window.applicationCache.onerror=function(){setTimeout(webkitExploit,500);};
+
+        function allset() 
+        {
+            document.getElementById("loader").style.display = "none";
+            document.getElementById("allset").style.display = "block";
+        }
+    </script>
+    <script src="exploit.js"></script>
+</head>
+
+<body>
+    <h1 id=progress style='font-size:35px;text-align:center;text-shadow: 4px 4px 4px black;color:rgb(255, 255, 255);'></h1><br>
+    <div id="loader" class="loader"></div>
+    <div id="allset" class="info" style="display:none;"> تم التفعيل </div>
+</body>
+
+</html>
